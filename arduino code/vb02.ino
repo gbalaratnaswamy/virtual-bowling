@@ -3,7 +3,7 @@
 //  VCC   ----->   3.3v
 //  GND   ----->   GND
 //  SCL   ----->   A5 pin
-//  SDA   ----->   A4 pin*/
+//  SDA   ----->   A4 pin
  
  
 #include<Wire.h>
