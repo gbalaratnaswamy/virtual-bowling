@@ -42,9 +42,9 @@ void loop(){
   Wire.write(0x3B);  // starting with register 0x3B (ACCEL_XOUT_H)
   Wire.endTransmission(false);
   Wire.requestFrom(MPU,6,true);  // request a total of 14 registers
-  AcX=(Wire.read()<<8|Wire.read());*0.25+pax*0.75;  // 0x3B (ACCEL_XOUT_H) & 0x3C (ACCEL_XOUT_L)    
-  AcY=(Wire.read()<<8|Wire.read());*0.25+pay*0.75;  // 0x3D (ACCEL_YOUT_H) & 0x3E (ACCEL_YOUT_L)
-  AcZ=(Wire.read()<<8|Wire.read());*0.25+paz*0.75;  // 0x3F (ACCEL_ZOUT_H) & 0x40 (ACCEL_ZOUT_L)
+  AcX=(Wire.read()<<8|Wire.read())*0.25+pax*0.75;  // 0x3B (ACCEL_XOUT_H) & 0x3C (ACCEL_XOUT_L)    
+  AcY=(Wire.read()<<8|Wire.read())*0.25+pay*0.75;  // 0x3D (ACCEL_YOUT_H) & 0x3E (ACCEL_YOUT_L)
+  AcZ=(Wire.read()<<8|Wire.read())*0.25+paz*0.75;  // 0x3F (ACCEL_ZOUT_H) & 0x40 (ACCEL_ZOUT_L)
  if(g==gp&&g==0){
   int a=map(AcX,-32768,32768,-180,180);
   mySerial.println(a);
